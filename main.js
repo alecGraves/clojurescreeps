@@ -1,7 +1,8 @@
-const clojurescreeps = require("./clojurescreeps");
+require("./clojurescreeps");
 
 exports = {
-    loop : clojurescreeps.clojurescreeps.core.screeps_loop
+    loop : clojurescreeps.core.screeps_loop
 }
 
-// exports.loop()
+// console.log( clojurescreeps )
+exports.loop()

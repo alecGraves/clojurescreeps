@@ -1,13 +1,12 @@
 {:main           "clojurescreeps.core"
  :output-to      "clojurescreeps.js"
  :output-dir     "out"
- :target         :webworker
- ; or webworker
+ :target         :nodejs
  :optimizations  :advanced
- ;:advanced (not worth it using node)
  :verbose        true
  :compiler-stats true
  :pretty-print   false
  :source-map     false
+; :language-out   :es3
  ; :externs ["screeps-externs.js"]
  :infer-externs  true}
