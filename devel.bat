@@ -1,0 +1,1 @@
+java -cp "cljs.jar;src" cljs.main --optimizations none
