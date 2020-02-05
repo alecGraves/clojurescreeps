@@ -26,7 +26,7 @@ var module = {
 var Memory = {};
 
 /**
- * @var
+ * @const
  */
 var Game = {
     creeps: {},
