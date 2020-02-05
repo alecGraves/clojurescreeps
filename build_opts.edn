@@ -7,6 +7,5 @@
  :compiler-stats true
  :pretty-print   false
  :source-map     false
-; :language-out   :es3
- ; :externs ["screeps-externs.js"]
+ :externs ["./src/screeps-externs.js"]
  :infer-externs  true}

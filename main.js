@@ -1,3 +1,5 @@
 require("./clojurescreeps");
 
-module.exports.loop = clojurescreeps.core.screeps_loop()
+module.exports.loop = function(){
+    clojurescreeps.core.screeps_loop(Game, Memory);
+};
