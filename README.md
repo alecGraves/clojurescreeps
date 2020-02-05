@@ -11,6 +11,11 @@ This project is tested with org.clojure/clojurescript version 1.10.597
 into the git page
     1. You can also download my copy [from my dropbox](https://www.dropbox.com/s/6zqu2oun6p86kmn/cljs.jar?dl=1)
 3. run `java -cp "cljs.jar;src" cljs.main  -co build_opts.edn -c` in command prompt
+4. Delete the fist line shebang (#) so screeps js interpreter does not error out
+`more +1 clojurescreeps.js > tmp.js && del clojurescreeps.js && rename tmp.js clojurescreeps.js`
+
+_alternatively, combine steps 3 and 4:_ `build.bat`
+
 #### Other Systems
 1. You can just [install Clojure](https://clojure.org/guides/getting_started)
 2. run `clj --main cljs.main -co build_opts.edn -c` in terminal
