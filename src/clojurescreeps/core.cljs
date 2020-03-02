@@ -6,11 +6,8 @@
 ;  (:require [clojurescreeps.screeps :as screeps]))
 (set! *warn-on-infer* true)
 
-(defn get-creep-names [Game] Game/creeps)
-
 (defn ^:export screeps_loop [^js/Game Game ^js/Memory Memory]
     (println "Hello world!")
     (println "My GCL is" (.. Game -gcl -level))
-    (println "My creeps are" (get-creep-names Game)))
-
+    (println "My creeps are" ((js->clj Game/creeps) "bob")))
 
