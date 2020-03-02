@@ -1,6 +1,6 @@
 ;
 ;  Main entrypoint to screeps ai program
-;     es mi raison d'e^tre
+;     es ma raison d'e^tre
 ;
 (ns clojurescreeps.core)
 ;  (:require [clojurescreeps.screeps :as screeps]))

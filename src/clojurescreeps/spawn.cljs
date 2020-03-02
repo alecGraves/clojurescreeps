@@ -1,4 +1,4 @@
 ;
 ;  Provides functions for manipulating the spawn
-;     es mi raison d'e^tre
+;     es ma raison d'e^tre
 ;
