@@ -25,6 +25,20 @@ _Linux:_
 docker run --rm -itv $(pwd):/clojurescreeps alecgraves/clojurescreeps:build
 ```
 
+#### Building the Docker Container Manually
+Building the docker container manually:
+```
+cd docker
+docker image build -t clojurescreepsbuilder .
+```
+
+Uploading the container (for me):
+```bash
+docker tag clojurescreepsbuilder alecgraves/clojurescreeps:build
+docker push alecgraves/clojurescreeps:build
+```
+
+
 #### Windows
 1. Install Java and make sure java bin is in your `%PATH%` environment variable.
 2. Download a cljs.jar [from this page](https://github.com/clojure/clojurescript/releases)
@@ -37,17 +51,4 @@ java -cp "cljs.jar;src" cljs.main -co build_opts.edn -c
 4. Delete the fist line shebang (#) so screeps js interpreter does not error out:
 ```bat
 more +1 clojurescreeps.js > tmp.js && del clojurescreeps.js && timeout 1 && rename tmp.js clojurescreeps.js
-```
-
-### Building the Docker Container Manually
-Building the docker container manually:
-```
-cd docker
-docker image build -t clojurescreepsbuilder .
-```
-
-Uploading the container (for me):
-```bash
-docker tag clojurescreepsbuilder alecgraves/clojurescreeps:build
-docker push alecgraves/clojurescreeps:build
 ```
