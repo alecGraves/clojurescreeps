@@ -15,6 +15,8 @@ This section covers how to do it on different platforms 🚀
 I made a minimal-ish docker container that has the build tools for cljs. To use it,
 just install docker and run the following command from this folder:
 
+**Compile ClojureScreeps with the Docker Image**
+
 _Windows:_
 ```bat
 docker run --rm -itv %cd%:/clojurescreeps alecgraves/clojurescreeps:build
@@ -26,7 +28,7 @@ docker run --rm -itv $(pwd):/clojurescreeps alecgraves/clojurescreeps:build
 
 **Building the Docker Image**
 
-Building the docker container manually:
+Building the docker image manually:
 ```
 cd docker
 docker image build -t clojurescreepsbuilder .
