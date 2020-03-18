@@ -25,6 +25,7 @@ docker run --rm -itv $(pwd):/clojurescreeps alecgraves/clojurescreeps:build
 ```
 
 **Building the Docker Image**
+
 Building the docker container manually:
 ```
 cd docker
