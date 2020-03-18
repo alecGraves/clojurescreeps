@@ -53,7 +53,7 @@ more +1 clojurescreeps.js > tmp.js && del clojurescreeps.js && timeout 1 && rena
 
 
 ## Test 
-This screeps AI is developed with tdd to help keep simple design in the forefront.
+This screeps AI is developed with TDD to help keep simple design in the forefront.
 This section covers how to run the tests ✔
 #### Windows
 1. Install clojurescript, following the install instructions for the Windows Build section
