@@ -67,7 +67,7 @@ java -cp "cljs.jar;src" cljs.main -co build_opts_test.edn -c && node tests.js
 ```
 
 # REPL
-Clojure is designed to take advantage of a Read-Eval-Print-Loop (REPL) environment.
+Clojure is designed to take advantage of a Read-Evaluate-Print-Loop (REPL) environment.
 The REPL environment lets you easily test out code modifications without having to recompile.
 Here we cover how to run the clojurescript REPL 🔥
 ## Windows
