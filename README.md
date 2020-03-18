@@ -57,7 +57,7 @@ This screeps AI is developed with tdd to help keep simple design in the forefron
 This section covers how to run the tests ✔
 #### Windows
 1. Install clojurescript, following the install instructions for the Windows Build section
-2. Install NodeJS it is in your PATH
+2. Install NodeJS and make sure it is in your PATH
 2. Run the tests:
 ```
 java -cp "cljs.jar;src" cljs.main -co build_opts_test.edn -c && node tests.js
