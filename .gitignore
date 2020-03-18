@@ -1,5 +1,6 @@
 clojurescreeps.js
-cljs.jar
+tests.js
+*.jar
 
-out/
+out*/
 .idea/

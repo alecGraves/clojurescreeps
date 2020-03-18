@@ -1,0 +1,11 @@
+{:main           "clojurescreeps.tests"
+ :output-to      "tests.js"
+ :output-dir     "out_test"
+ :target         :nodejs
+ :optimizations  :none
+ :verbose        true
+ :compiler-stats true
+ :pretty-print   false
+ :source-map     false
+ :externs ["./src/screeps-externs.js"]
+ :infer-externs  true}
