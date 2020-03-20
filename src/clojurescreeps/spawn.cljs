@@ -4,8 +4,8 @@
 ;
 (ns clojurescreeps.spawn)
 
-(defn getScreepsCount []
-  (def count (+ 1 1))
-  (println count)
-  count)
+(defn shouldSpawnCreep [creeps]
+                      (< (count creeps) 1))
 
+;(defn smartSpawnCreep [creeps spawn spawnfn]
+;)))
