@@ -49,9 +49,16 @@ into the git page
 ```bat
 java -cp "cljs.jar;src" cljs.main -co build_opts.edn -c
 ```
-4. Delete the fist line shebang (#) so screeps js interpreter does not error out:
+4. Delete the fist line with shebang (#) so screeps js interpreter does not error out:
 ```bat
 more +1 clojurescreeps.js > tmp.js && del clojurescreeps.js && timeout 1 && rename tmp.js clojurescreeps.js
+```
+
+...
+
+or steps 3+4 combined:
+```bat
+java -cp "cljs.jar;src" cljs.main -co build_opts.edn -c && more +1 clojurescreeps.js > tmp.js && del clojurescreeps.js && timeout 1 && rename tmp.js clojurescreeps.js
 ```
 
 
