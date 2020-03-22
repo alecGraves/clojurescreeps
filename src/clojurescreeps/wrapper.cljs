@@ -10,7 +10,10 @@
 (defn j [x]
   (clj->js x))
 
-(defn spawnCreep [^js/StructureSpawn spawn n]
+(defn spawnCreep [^js/StructureSpawn spawn newCreepName]
+  (println "Spawning creep " newCreepName "...")
   (.spawnCreep spawn
-   (clj->js ["work", "carry", "move"])
-   (concat "Re-l" (str n))))
+   (j ["work", "carry", "move"])
+   (j newCreepName)))
+
+

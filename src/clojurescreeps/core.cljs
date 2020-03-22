@@ -5,27 +5,24 @@
 
 (ns clojurescreeps.core
   (:require [clojurescreeps.spawn :as spawntools]
+            [clojurescreeps.creep :as creeptools]
             [clojurescreeps.wrapper :as wrapper]))
 
 (set! *warn-on-infer* true)
 
-(defn ^:export screeps_loop [^js/Game Game ^js/Memory Memory]
+(defn ^:export screeps_loop [^js/Game GameJS ^js/Memory MemoryJS]
+  (def memory (js->clj MemoryJS))
+
   (println "Hello.")
-  (println "My GCL is" (.. Game -gcl -level))
-  (def creeps (js->clj Game/creeps))
-  (println "My creeps are" creeps)
-  (println "I have x screeps:" (count creeps))
+  (println "My GCL is" (.. GameJS -gcl -level))
+  (def creeps (js->clj GameJS/creeps))
+  (println "I have x creeps:" (count creeps))
 
-  (def spawns (js->clj Game/spawns))
-  (def first-spawn (spawns (first (keys spawns))))
-  (defn spawncreep []
-    (println "I should spawn a creep...")
-    (wrapper/spawnCreep first-spawn (count creeps)))
+  (def spawns (js->clj GameJS/spawns))
+  (def firstSpawnName (first (keys spawns)))
+  (spawntools/smartSpawnCreep creeps spawns firstSpawnName wrapper/spawnCreep)
 
-  (if (spawntools/shouldSpawnCreep creeps)
-    (spawncreep))
-
-  (clj->js (js->clj Memory)))
+  (clj->js memory))
 
 
 
