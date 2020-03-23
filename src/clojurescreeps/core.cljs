@@ -17,6 +17,10 @@
   (println "My GCL is" (.. GameJS -gcl -level))
   (def creeps (js->clj GameJS/creeps))
   (println "I have x creeps:" (count creeps))
+  (println "creep name is " (first (keys creeps)))
+  (def jscreep (creeps (first (keys creeps))))
+  (if (not (nil? jscreep)) (println "jscreep is " jscreep))
+  (if (not (nil? jscreep)) (println "clojurecreep is " (wrapper/clojureCreep jscreep)))
 
   (def spawns (js->clj GameJS/spawns))
   (def firstSpawnName (first (keys spawns)))

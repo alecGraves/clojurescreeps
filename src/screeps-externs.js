@@ -1,5 +1,5 @@
 //
-//  Optimized type hints for clojurescript screeps javascript interop
+//  Provides optimized type hints for clojurescript screeps javascript interop.
 //      es mi raison d'e^tre
 //
 /**
@@ -33,6 +33,23 @@ var Game = {
     spawns: {}
 };
 
+
+var Store = function() {
+    this.energy={};
+};
+Store.prototype.getCapacity = function(resource) {};
+Store.prototype.getFreeCapacity = function(resource) {};
+Store.prototype.getUsedCapacity = function(resource) {};
+
+
+var RoomPosition = function() {
+    this.roomName={};
+    this.x={};
+    this.y={};
+};
+RoomPosition.prototype.findClosestByRange = function(type, opts) {};
+RoomPosition.prototype.findPathTo = function(type, opts) {};
+
 var Creep = function() {
     /**
      * @type {Array<Object>}
@@ -43,16 +60,17 @@ var Creep = function() {
         hits: {}
     }];
 
-    this.carry = {
-        energy: {}
-    };
+    /**
+     * @type {Store}
+     */
+    this.store = function(){};
 
     this.carryCapacity = {};
 
     /**
      * @type {RoomPosition}
      */
-    this.pos = {};
+    this.pos = function(){};
 };
 Creep.prototype.attack = function(target) {};
 Creep.prototype.attackController = function(target) {};
@@ -82,6 +100,27 @@ Creep.prototype.transfer = function(target, resourceType, amount) {};
 Creep.prototype.upgradeController = function(target) {};
 Creep.prototype.withdraw = function(target, resourceType, amount) {};
 
-var RoomPosition = function() {};
-RoomPosition.prototype.findClosestByRange = function(type, opts) {};
+var Room = function(){
+    /**
+     * @type {StructureController}
+     */
+    this.controller  = function(){};
 
+    this.energyAvailable = {};
+
+    this.energyCapacityAvailable = {};
+
+    this.memory = {};
+
+    /**
+     * @type {StructureStorage}
+     */
+    this.storage = function(){};
+
+    /**
+     * @type {StructureTerminal}
+     */
+    this.terminal = function(){};
+
+};
+Room.prototype.find = function(type, options) {};

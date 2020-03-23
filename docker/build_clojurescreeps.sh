@@ -13,3 +13,5 @@ java -cp /usr/local/bin/cljs.jar:src cljs.main -co build_opts.edn -c
 echo "finishing up!"
  # remove the '#' line at the top
 sed -i '1d' clojurescreeps.js
+
+echo "Done."
