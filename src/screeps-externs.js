@@ -30,7 +30,8 @@ var Memory = {};
  */
 var Game = {
     creeps: {},
-    spawns: {}
+    spawns: {},
+    rooms: {}
 };
 
 
@@ -71,6 +72,11 @@ var Creep = function() {
      * @type {RoomPosition}
      */
     this.pos = function(){};
+
+    /**
+     * @type {Room}
+     */
+    this.room = function(){};
 };
 Creep.prototype.attack = function(target) {};
 Creep.prototype.attackController = function(target) {};

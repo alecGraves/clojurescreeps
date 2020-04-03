@@ -52,9 +52,9 @@
          "Re-l_56_0")))
 
 (deftest creep-is-full
-  (def myCreepFull {:body '("work" "carry" "move") :storage_free 0})
-  (def myCreepEmpty {:body '("work" "carry" "move") storage_free 50})
-  (def myCreepHalfFull {:body '("work" "carry" "carry" "move") :storage_free 25})
+  (def myCreepFull {:body '("work" "carry" "move") :storageFree 0})
+  (def myCreepEmpty {:body '("work" "carry" "move") storageFree 50})
+  (def myCreepHalfFull {:body '("work" "carry" "carry" "move") :storageFree 25})
   (is (true? (creeptools/full myCreepFull)))
   (is (false? (creeptools/full myCreepEmpty)))
   (is (false? (creeptools/full myCreepHalfFull))))
@@ -64,12 +64,23 @@
 (deftest distance-formula
   (is (= (reduce + (map (fn [x] (* x x)) (map (fn [[x y]] (- y x)) (map vector '(0 0) '(1 1)))))
          2))
-  (is (= (creeptools/dist**2 [0 0] [1 1])
+  (is (= (math/dist**2 [0 0] [1 1])
          2))
-  (is (= (creeptools/dist**2 [0 0] [0 5])
+  (is (= (math/dist**2 [0 0] [0 5])
          25)))
 
-(deftest creep-moves-to-source-when-not-full
-  (defn movefn [creep] ))
+(defn getGenericCreep []
+  {:name "Re-l_1_0"
+   :body ["work", "carry", "move"]
+   :storageMax 50
+   :storageFree 50
+   :energy 0
+   :position [0, 0]
+   :roomName "A0A0"})
+
+;(deftest creep-moves-to-source-when-not-full
+;  (def newCreep (getGenericCreep))
+;  (defn movefn [creep] true)
+;  (is (= creeptools/)))
 
 (run-tests)

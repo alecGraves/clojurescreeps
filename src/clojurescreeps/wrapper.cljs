@@ -16,18 +16,29 @@
                (j ["work", "carry", "move"])
                (j newCreepName)))
 
+(defn getPosition [^js/RoomPosition position]
+  (c [(.-x position) (.-y position)]))
+
 (defn clojureCreep [^js/Creep jsCreep]
   (def store (.-store jsCreep))
   (def body (c (.-body jsCreep)))
   {:name (c (.-name jsCreep))
    :body (map (fn [b] (b "type")) body)
-   :storage_max (c (.getCapacity store))
-   :storage_free (c (.getFreeCapacity store))
+   :storageMax (c (.getCapacity store))
+   :storageFree (c (.getFreeCapacity store))
    :energy (c (.-energy store))
-   :xy-position (c [(.. jsCreep -pos -x) (.. jsCreep -pos -y)])
-   :roomName (c (.. jsCreep -pos -roomName))
-   :jsCreep jsCreep})
+   :position (getPosition (.-pos jsCreep))
+   :roomName (c (.. jsCreep -pos -roomName))})
 
-;(defn getMoveFn)
+(defn clojureSource [^js/Source jsSource]
+    {:position (getPosition (.-pos jsSource))
+    :roomName (.. jsSource -room -name)
+    :energy (.-energy jsSource)
+    :energyCapacity (.-energyCapacity jsSource)
+    :ticksToRegeneration (.-ticksToRegeneration jsSource)})
 
-;(defn findEnergySource)
+(defn find [^js/Room room key]
+  (c (.find room key)))
+
+(defn findSources [^js/Room room]
+  (map clojureSource (find room 105)))
