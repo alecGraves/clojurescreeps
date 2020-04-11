@@ -3,6 +3,7 @@
  :output-dir     "out_test"
  :target         :nodejs
  :optimizations  :none
+ :cache-analysis true
  :verbose        true
  :compiler-stats true
  :pretty-print   false

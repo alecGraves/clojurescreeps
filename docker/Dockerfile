@@ -13,12 +13,14 @@ FROM debian:stable AS clojurescreeps_builder
 
 RUN ulimit -n 2048 && \
 	apt-get update && \
-	apt-get -y install --no-install-recommends default-jre && \
+	apt-get -y install --no-install-recommends default-jre nodejs && \
 	apt-get clean && \
 	apt-get autoclean && \
 	rm -rf /var/lib/apt/lists/*
 
 COPY --from=build /usr/local/bin/cljs.jar /usr/local/bin
-COPY build_clojurescreeps.sh /usr/local/bin
-RUN chmod +x /usr/local/bin/build_clojurescreeps.sh
-ENTRYPOINT ["/usr/local/bin/build_clojurescreeps.sh"]
+COPY *.sh /usr/local/bin/
+
+RUN chmod +x /usr/local/bin/dispatch.sh
+
+ENTRYPOINT ["/usr/local/bin/dispatch.sh"]
